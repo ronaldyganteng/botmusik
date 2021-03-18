@@ -13,7 +13,7 @@ async def start_(client: Client, message: Message):
 
 Haii Aku Pemutar Musik Telegram, Kamu Bisa Mendengarkan Musik Di Telegram!.
 
-Use the buttons below to know more about me.""",
+Silahkan Klik Tombol Dibawah Ini, Apabila Kurang Jelas Atau Masih Bingung Menggunakan Aku.""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
