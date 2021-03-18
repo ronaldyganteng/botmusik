@@ -19,7 +19,7 @@ from helpers.errors import DurationLimitError
 async def play(client: Client, message_: Message):
     audio = (message_.reply_to_message.audio or message_.reply_to_message.voice) if message_.reply_to_message else None
 
-    res = await message_.reply_text("🔄 Processing...")
+    res = await message_.reply_text("🔄 Sabar Kawan, Lagumu Sedang Di-Proses!....")
 
     if audio:
         if round(audio.duration / 60) > DURATION_LIMIT:
@@ -50,7 +50,7 @@ async def play(client: Client, message_: Message):
                         break
 
         if offset == None:
-            await res.edit_text("❕ You did not give me anything to play.")
+            await res.edit_text("❕ Apabila Kamu Mau Play, Ketik Judul Lagu Abis Itu Reply /play Dan Baru Mulai Lagu!")
             return
 
         url = text[offset:offset+length]
@@ -66,5 +66,5 @@ async def play(client: Client, message_: Message):
         position = await sira.add(message_.chat.id, file_path)
         await res.edit_text(f"#️⃣ Queued at position {position}.")
     else:
-        await res.edit_text("▶️ Playing...")
+        await res.edit_text("▶️ Lagu Kamu Sudah Dimulai!.")
         tgcalls.pytgcalls.join_group_call(message_.chat.id, file_path, 48000)
